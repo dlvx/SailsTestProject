@@ -17,7 +17,8 @@
 // (if you're using LESS with the built-in default config, you'll want
 //  to change `assets/styles/importer.less` instead.)
 var cssFilesToInject = [
-  'styles/**/*.css'
+  'styles/**/*.css',
+  '/bower_components/angular-toastr/dist/angular-toastr.css'
 ];
 
 
@@ -30,6 +31,9 @@ var jsFilesToInject = [
 
   // -- INJECT FROM bower_components
   '/bower_components/angular/angular.js',
+  '/bower_components/angular-sails/dist/angular-sails.js',
+  '/bower_components/angular-toastr/dist/angular-toastr.tpls.js',
+  '/bower_components/angular-animate/angular-animate.js',
 
   // Dependencies like jQuery, or Angular are brought in here
   'js/dependencies/**/*.js',
