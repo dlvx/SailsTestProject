@@ -1,0 +1,20 @@
+<div class="">
+  <form>
+    Name: <input type="text" ng-model="user.name" />
+    E-mail: <input type="email" ng-model="user.email" />
+    <input type="submit" ng-click="create(user)" value="Create User" />
+    <p style="color:red; font-weight:600" ng-if="errorMsg">{{errorMsg}}</p>
+  </form>
+
+  
+  <h3>Users</h3>
+  <div class="" ng-repeat="user in users">
+    Name: <input type="text" ng-model="user.name" />
+    <br>
+    Email: <input type="email" ng-model="user.email" />
+    <button ng-click="update(user, $index)">Update</button>
+    <button ng-click="delete(user, $index)">Delete</button>
+    <hr>
+  </div>
+
+</div>

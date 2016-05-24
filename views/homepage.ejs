@@ -1,28 +1,20 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html ng-app="app">
   <head>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
-    <div class="" ng-controller="UserController">
-      <!-- <button type="button" name="button" ng-click="loadUsers()">Load Users</button> -->
-      <form>
-        Name: <input type="text" ng-model="user.name" />
-        E-mail: <input type="email" ng-model="user.email" />
-        <input type="submit" ng-click="create(user)" value="Create User" />
-        <p style="color:red; font-weight:600" ng-if="errorMsg">{{errorMsg}}</p>
-      </form>
-      <h3>Users</h3>
-      <div class="" ng-repeat="user in users">
-        Name: <input type="text" ng-model="user.name" />
-        <br>
-        Email: <input type="email" ng-model="user.email" />
-        <button ng-click="update(user, $index)">Update</button>
-        <button ng-click="delete(user, $index)">Delete</button>
-        <hr>
+    <nav>
+      <div class="login">
+        <a>Login</a> |
+        <a>Logout</a>
       </div>
+      <div class="menu">
+        <a ui-sref="users">Users</a> |
+      </div>
+    </nav>
+    <div ui-view></div>
 
-    </div>
   </body>
 </html>

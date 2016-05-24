@@ -31,11 +31,13 @@ var jsFilesToInject = [
 
   // -- INJECT FROM bower_components
   '/bower_components/angular/angular.js',
+  '/bower_components/angular-ui-router/release/angular-ui-router.js',
   '/bower_components/angular-sails/dist/angular-sails.js',
   '/bower_components/angular-toastr/dist/angular-toastr.tpls.js',
   '/bower_components/angular-animate/angular-animate.js',
 
   // Dependencies like jQuery, or Angular are brought in here
+
   'js/dependencies/**/*.js',
 
   // All of the rest of your client-side js files
@@ -54,7 +56,7 @@ var jsFilesToInject = [
 // templates get spit out to the same file.  Be sure and check out `tasks/README.md`
 // for information on customizing and installing new tasks.
 var templateFilesToInject = [
-  'templates/**/*.html'
+  //'templates/**/*.html'
 ];
 
 
