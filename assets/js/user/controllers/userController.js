@@ -7,6 +7,7 @@ app.controller('UserController', ['$scope', '$sails', 'toastr', 'UserService',
   $scope.getAllUsers = function(){
     UserService.getAllUsers()
       .then(function(data){
+        console.log(data);
         $scope.users = data;
       }, function(errResp){
         console.log(errResp);
@@ -48,13 +49,13 @@ app.controller('UserController', ['$scope', '$sails', 'toastr', 'UserService',
     console.log(response);
     if(response.verb === 'created'){
       $scope.users.push(response.data);
-      toastr.success(response.data.name, 'Created user');
+      toastr.success(response.data.username, 'Created user');
     }else if(response.verb === 'updated'){
       var index = $scope.users.map(function (user) {
             return user.id;
       }).indexOf(response.data.id);
       $scope.users[index] = response.data;
-      toastr.info(response.data.name, 'Updated user');
+      toastr.info(response.data.username, 'Updated user');
     }else if(response.verb === 'destroyed'){
       var index = $scope.users.map(function (user) {
             return user.id;

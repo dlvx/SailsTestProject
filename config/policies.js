@@ -28,6 +28,14 @@ module.exports.policies = {
 
   // '*': true,
 
+  //'*': ['passport', 'sessionAuth'],
+  'user': {
+    'user' : ['passport', 'sessionAuth'],
+  },
+  'auth': {
+    '*': ['passport']
+  }
+
   /***************************************************************************
   *                                                                          *
   * Here's an example of mapping some policies to run before a controller    *

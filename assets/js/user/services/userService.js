@@ -5,6 +5,7 @@ app.factory('UserService', ['$http', '$q', '$sails', function($http, $q, $sails)
     getAllUsers : function(){
       return $sails.get('/user')
         .then(function(resp){
+          console.log(resp.data);
           return resp.data;
         }, function(errResp){
           console.log("Error while getting users");
@@ -16,7 +17,7 @@ app.factory('UserService', ['$http', '$q', '$sails', function($http, $q, $sails)
       return $http({
         method: 'POST',
         url: '/user/create',
-        params: { name : user.name , email : user.email }
+        params: { name : user.username , email : user.email }
       }).then(function(resp) {
 
         }, function(errResp) {
@@ -28,7 +29,7 @@ app.factory('UserService', ['$http', '$q', '$sails', function($http, $q, $sails)
       return $http({
         method: 'POST',
         url: '/user/update/' + user.id,
-        data: { id : user.id, name: user.name, email: user.email}
+        data: { id : user.id, name: user.username, email: user.email}
       }).then(function(resp) {
 
         }, function(errResp) {
