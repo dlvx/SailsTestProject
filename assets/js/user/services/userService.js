@@ -5,11 +5,15 @@ app.factory('UserService', ['$http', '$q', '$sails', function($http, $q, $sails)
     getAllUsers : function(){
       return $sails.get('/user')
         .then(function(resp){
-          console.log(resp.data);
-          return resp.data;
+          if(angular.isArray(resp.data)){
+            console.log(resp.data);
+            return resp.data;
+          }else{
+            console.log(resp.data);
+          }
         }, function(errResp){
           console.log("Error while getting users");
-          //return $q.reject(errResp)
+          return $q.reject(errResp)
         });
     },
 
@@ -21,7 +25,8 @@ app.factory('UserService', ['$http', '$q', '$sails', function($http, $q, $sails)
       }).then(function(resp) {
 
         }, function(errResp) {
-
+          console.log("Error while creating user");
+          return $q.reject(errResp)
         });
     },
 
@@ -33,7 +38,8 @@ app.factory('UserService', ['$http', '$q', '$sails', function($http, $q, $sails)
       }).then(function(resp) {
 
         }, function(errResp) {
-
+          console.log("Error while updating user");
+          return $q.reject(errResp)
         });
     },
 
@@ -48,6 +54,8 @@ app.factory('UserService', ['$http', '$q', '$sails', function($http, $q, $sails)
           // if(errResp.status == 400){
           //   $scope.errorMsg = "Invalid Fields";
           // }
+          console.log("Error while deleting user");
+          return $q.reject(errResp)
       });
     },
 

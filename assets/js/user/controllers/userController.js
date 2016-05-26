@@ -7,8 +7,9 @@ app.controller('UserController', ['$scope', '$sails', 'toastr', 'UserService',
   $scope.getAllUsers = function(){
     UserService.getAllUsers()
       .then(function(data){
-        console.log(data);
-        $scope.users = data;
+        if(data){
+          $scope.users = data;
+        }
       }, function(errResp){
         console.log(errResp);
       });

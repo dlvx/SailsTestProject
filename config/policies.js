@@ -30,7 +30,7 @@ module.exports.policies = {
 
   //'*': ['passport', 'sessionAuth'],
   'user': {
-    'user' : ['passport', 'sessionAuth'],
+    '*' : ['passport', 'sessionAuth'],
   },
   'auth': {
     '*': ['passport']
