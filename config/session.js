@@ -44,7 +44,7 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
 
-  // adapter: 'redis',
+   adapter: 'connect-redis',
 
   /***************************************************************************
   *                                                                          *
@@ -55,12 +55,12 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
 
-  // host: 'localhost',
-  // port: 6379,
-  // ttl: <redis session TTL in seconds>,
-  // db: 0,
-  // pass: <redis auth password>,
-  // prefix: 'sess:',
+  host: 'viperfish.redistogo.com',
+  port: 10519,
+  ttl: 30, //in seconds
+  db: 'redistogo',
+  pass: 'f2d86511f4a4ebd23d8eb5c73a74abfa',
+  prefix: '_sess:',
 
 
   /***************************************************************************

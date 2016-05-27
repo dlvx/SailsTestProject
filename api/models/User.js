@@ -1,4 +1,5 @@
 var User = {
+   connection: 'mongoDBServer',
   // Enforce model schema in the case of schemaless databases
   schema: true,
 
