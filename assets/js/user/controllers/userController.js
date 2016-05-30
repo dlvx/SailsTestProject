@@ -66,4 +66,27 @@ app.controller('UserController', ['$scope', '$sails', 'toastr', 'UserService',
     }
   });
 
+
+
+  // ----- PRODUCT STUFF ----//
+  $scope.createProduct = function(){
+    UserService.createProduct($scope.product)
+      .then(function(data){
+
+      }, function(errResp){
+
+      });
+  };
+
+  $scope.myProducts = function(){
+    UserService.myProducts()
+      .then(function(data){
+        if(data){
+          $scope.products = data;
+        }
+      }, function(errResp){
+        console.log(errResp);
+      });
+  };
+
 }]);

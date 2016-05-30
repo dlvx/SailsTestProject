@@ -57,7 +57,7 @@ module.exports.session = {
 
   host: 'viperfish.redistogo.com',
   port: 10519,
-  ttl: 30, //in seconds
+  ttl: 300, //in seconds
   db: 'redistogo',
   pass: 'f2d86511f4a4ebd23d8eb5c73a74abfa',
   prefix: '_sess:',

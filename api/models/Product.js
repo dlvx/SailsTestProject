@@ -7,13 +7,23 @@
 
 module.exports = {
 
- //connection: 'redisServer',
- connection: 'mongoDBServer',
+ connection: 'mariaDBServer',
+ tableName: 'product',
+ autoPk: false,
  // Enforce model schema in the case of schemaless databases
- schema: true,
+ //schema: true,
 
  attributes: {
+   id : {
+     type: 'integer',
+     primaryKey: true,
+     autoIncrement: true,
+     defaultsTo: 0
+   },
    name  : { type: 'string'},
-   price     : { type: 'float'}
+   price     : { type: 'float'},
+   owner: {
+      model: 'user'
+   }
  }
 };
