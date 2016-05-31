@@ -29,11 +29,14 @@ module.exports.policies = {
   // '*': true,
 
   //'*': ['passport', 'sessionAuth'],
-  'user': {
-    '*' : ['passport', 'sessionAuth'],
-  },
   'auth': {
     '*': ['passport']
+  },
+  'user': {
+    '*' : ['passport', 'sessionAuth']
+  },
+  product: {
+      '*' : ['passport', 'sessionAuth']
   }
 
   /***************************************************************************

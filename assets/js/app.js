@@ -10,4 +10,9 @@ app.config(function($stateProvider, $urlRouterProvider){
       templateUrl: 'templates/users.html',
       controller: 'UserController'
     })
+    .state('products', {
+      url: '/products',
+      templateUrl: 'templates/products.html',
+      controller: 'ProductController'
+    })
 });

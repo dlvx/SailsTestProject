@@ -1,5 +1,5 @@
-app.controller('UserController', ['$scope', '$sails', 'toastr', 'UserService',
-  function($scope, $sails, toastr, UserService){
+app.controller('UserController', ['$scope', 'toastr', '$sails', 'UserService',
+  function($scope, toastr, $sails, UserService){
 
  console.log('registered');
 
@@ -65,28 +65,5 @@ app.controller('UserController', ['$scope', '$sails', 'toastr', 'UserService',
       toastr.info(response.id, 'Deleted user');
     }
   });
-
-
-
-  // ----- PRODUCT STUFF ----//
-  $scope.createProduct = function(){
-    UserService.createProduct($scope.product)
-      .then(function(data){
-
-      }, function(errResp){
-
-      });
-  };
-
-  $scope.myProducts = function(){
-    UserService.myProducts()
-      .then(function(data){
-        if(data){
-          $scope.products = data;
-        }
-      }, function(errResp){
-        console.log(errResp);
-      });
-  };
 
 }]);

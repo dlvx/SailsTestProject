@@ -1,18 +1,12 @@
 <div class="">
-  <form>
+  <!-- <form>
     Name: <input type="text" ng-model="user.username" />
     E-mail: <input type="email" ng-model="user.email" />
     <input type="submit" ng-click="create(user)" value="Create User" />
     <p style="color:red; font-weight:600" ng-if="errorMsg">{{errorMsg}}</p>
-  </form>
+  </form> -->
 
-  Create Product
-  <form>
-    Name: <input type="text" ng-model="product.name" />
-    Price: <input type="number" step="0.01" ng-model="product.price" />
-    <input type="submit" ng-click="createProduct(product)" value="Create Product" />
-    <p style="color:red; font-weight:600" ng-if="errorMsg">{{errorMsg}}</p>
-  </form>
+  
 
 
   <h3>Users</h3>
@@ -22,15 +16,6 @@
     Email: <input type="email" ng-model="user.email" />
     <button ng-click="update(user, $index)">Update</button>
     <button ng-click="delete(user, $index)">Delete</button>
-    <hr>
-  </div>
-
-  <h3>Products</h3>
-  <button type="button" name="button" ng-click="myProducts()">Load Products</button>
-  <div class="" ng-repeat="product in products">
-    Name: <input type="text" ng-model="product.name" />
-    <br>
-    Price: <input type="email" ng-model="product.price" />
     <hr>
   </div>
 

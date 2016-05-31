@@ -57,31 +57,7 @@ app.factory('UserService', ['$http', '$q', '$sails', function($http, $q, $sails)
           console.log("Error while deleting user");
           return $q.reject(errResp)
       });
-    },
-
-    // --- PRODUCT STUFF ---- //
-    createProduct: function(product){
-      console.log(product);
-      return $http({
-        method: 'POST',
-        url: '/product/create',
-        data: { name : product.name , price : product.price }
-      }).then(function(resp) {
-
-        }, function(errResp) {
-          console.log("Error while creating product");
-          return $q.reject(errResp)
-        });
-    },
-
-    myProducts: function(){
-      return $http({
-        method: 'GET',
-        url: '/product/myPosts'
-      }).then(function(products){
-
-      });
     }
-
+  
   }
 }])

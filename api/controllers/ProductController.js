@@ -27,10 +27,18 @@ module.exports = {
 	},
 
 	myProducts: function(req, res){
-		var userId = req.session.passport.user;
-		// if(userId)
-    Product.find({owner: userId}, function(err, products){
-      res.json(products);
-    })
+		if(req.session.passport){
+			var userId = req.session.passport.user;
+			// Product.find({owner: userId}, function(err, products){
+	    //   res.json(products);
+	    // });
+			Product.find({owner: userId})
+				.populate('owner')
+				.exec(function(err, products){
+					res.json(products);
+				});
+		}else{
+			res.status(401).end();
+		}
   }
 };
