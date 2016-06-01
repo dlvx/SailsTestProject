@@ -3,7 +3,7 @@ app.controller('UserController', ['$scope', 'toastr', '$sails', 'UserService',
 
  console.log('registered');
 
-
+//
   $scope.getAllUsers = function(){
     UserService.getAllUsers()
       .then(function(data){

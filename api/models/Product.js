@@ -7,9 +7,10 @@
 
 module.exports = {
 
- connection: 'mariaDBServer',
- tableName: 'product',
- autoPk: false,
+ //connection: 'mariaDBServer',
+ //tableName: 'product',
+ //autoPk: false,
+
  // Enforce model schema in the case of schemaless databases
  //schema: true,
 

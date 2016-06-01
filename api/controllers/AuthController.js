@@ -69,11 +69,13 @@ var AuthController = {
    */
   logout: function (req, res) {
     req.logout();
-
     // mark the user as logged out for auth purposes
     req.session.authenticated = false;
 
-    res.redirect('/');
+    //res.redirect('/');
+    res.status(200).json({
+      status : 'Bye!' //mod
+    });
   },
 
   /**
@@ -93,8 +95,11 @@ var AuthController = {
    */
   register: function (req, res) {
     console.log(req.params);
-    res.view({
-      errors: req.flash('error')
+    // res.view({
+    //   errors: req.flash('error')
+    // });
+    res.status(200).json({ //mod
+      status: 'Registered!'
     });
   },
 
@@ -168,10 +173,13 @@ var AuthController = {
 
         // Mark the session as authenticated to work with default Sails sessionAuth.js policy
         req.session.authenticated = true
-
+        console.log('server login')
         // Upon successful login, send the user to the homepage were req.user
         // will be available.
-        res.redirect('/');
+        //res.redirect('/');
+        res.status(200).json({ //mod
+          status: 'Login successful!'
+        });
       });
     });
   },

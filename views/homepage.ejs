@@ -7,8 +7,12 @@
   <body>
     <nav>
       <div class="login">
-        <a href="/login">Login</a> |
-        <a href="/logout">Logout</a>
+        <a ui-sref="register">Register</a> |
+        <a ui-sref="login">Login</a> |
+        <div ng-controller="LogoutController">
+          <a ng-click="logout()">Logout</a>
+        </div>
+
       </div>
       <div class="menu">
         <a ui-sref="users">Users</a> | <a ui-sref="products">Products</a> |
