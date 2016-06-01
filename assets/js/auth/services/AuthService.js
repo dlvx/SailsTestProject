@@ -2,6 +2,24 @@ app.factory('AuthService', ['$q', '$timeout', '$http',
   function($q, $timeout, $http){
     var user = null;
 
+    function isLoggedIn(){
+      if(user){
+        return true;
+      }else{
+        return false;
+      }
+    }
+
+    function currentUser(){
+
+      return $http.get('/currentUser')
+        .then(function(resp){
+          return resp.data;
+        }, function(){
+          return 'No user is logged in';
+        });
+    }
+
     function register(username, email, password){
       var deferred = $q.defer();
 
@@ -28,9 +46,10 @@ app.factory('AuthService', ['$q', '$timeout', '$http',
       $http.post('/auth/local',
         { identifier : identifier, password : password } )
         .success(function(data, status){
+
           if(status === 200 && data.status){
             user = true;
-            deferred.resolve();
+            deferred.resolve(data);
           } else {
             user = false;
             deferred.reject();
@@ -67,7 +86,8 @@ app.factory('AuthService', ['$q', '$timeout', '$http',
     return {
       login : login,
       logout : logout,
-      register : register
+      register : register,
+      currentUser : currentUser
     }
 
   }]);

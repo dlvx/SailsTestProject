@@ -6,6 +6,17 @@
  * the basics of Passport.js to work.
  */
 var AuthController = {
+
+  currentUser : function(req, res){
+    if(req.user === undefined){
+      res.json({});
+    }else{
+      res.json({
+        currentUser : req.user
+      })
+    }
+  },
+
   /**
    * Render the login page
    *
@@ -178,8 +189,9 @@ var AuthController = {
         // will be available.
         //res.redirect('/');
         res.status(200).json({ //mod
-          status: 'Login successful!'
-        });
+          status: 'User Logged In',
+          currentUser : req.user
+        })
       });
     });
   },

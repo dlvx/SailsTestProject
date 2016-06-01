@@ -7,7 +7,8 @@ app.controller('LoginController', ['$scope', '$location', 'AuthService',
         $scope.diabled = true;
 
         AuthService.login($scope.loginForm.identifier, $scope.loginForm.password)
-          .then(function(){
+          .then(function(resp){
+            $scope.currentUser = resp.currentUser.username;
             $location.path('/');
             $scope.disabled = false;
             $scope.loginForm = {};
@@ -21,4 +22,17 @@ app.controller('LoginController', ['$scope', '$location', 'AuthService',
             console.log('Error login');
           });
       }
+
+      $scope.getCurrentUser = function(){
+        AuthService.currentUser()
+          .then(function(data){
+            if(data.hasOwnProperty('currentUser')){
+              $scope.currentUser = data.currentUser.username;
+            }
+          }, function(err){
+            console.log(err);
+          })
+      }
+
+      $scope.getCurrentUser();
 }]);

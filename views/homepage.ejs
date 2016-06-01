@@ -6,6 +6,9 @@
   </head>
   <body>
     <nav>
+      <div ng-controller="LoginController" >
+        <span ng-model="currentUser"></span>{{currentUser}}
+      </div>
       <div class="login">
         <a ui-sref="register">Register</a> |
         <a ui-sref="login">Login</a> |
