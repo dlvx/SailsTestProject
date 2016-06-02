@@ -28,6 +28,8 @@ app.controller('LoginController', ['$scope', '$location', 'AuthService',
           .then(function(data){
             if(data.hasOwnProperty('currentUser')){
               $scope.currentUser = data.currentUser.username;
+            }else{
+              $scope.currentUser = 'No User Logged'
             }
           }, function(err){
             console.log(err);
